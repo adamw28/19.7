@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import {boundAddComment} from './action';
-const store = createStore(reducer);
+export const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

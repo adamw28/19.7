@@ -1,13 +1,10 @@
 import uuid from 'uuid';
 import { createStore } from 'redux';
-import reducer from './reducer';
-
+import { store } from './index';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
-
-const store = createStore(reducer);
 
 function addComment(text) {
     return {
