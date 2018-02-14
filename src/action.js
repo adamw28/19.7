@@ -1,9 +1,13 @@
 import uuid from 'uuid';
+import { createStore } from 'redux';
+import reducer from './reducer';
 
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+
+const store = createStore(reducer);
 
 function addComment(text) {
     return {
@@ -12,7 +16,7 @@ function addComment(text) {
         id: uuid.v4()
     }
 }
-
+const boundAddComment = text => store.dispatch(addComment(text));
 function removeComment(commentId) {
     return {
         type: REMOVE_COMMENT,
@@ -35,4 +39,4 @@ function thumbUpComment(commentId) {
     }
 }
 
-export default { addComment, removeComment, editComment, thumbUpComment };
+export { boundAddComment, removeComment, editComment, thumbUpComment };
