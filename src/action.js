@@ -1,10 +1,10 @@
 import uuid from 'uuid';
-import { createStore } from 'redux';
 import { store } from './index';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 function addComment(text) {
     return {
@@ -36,4 +36,11 @@ function thumbUpComment(commentId) {
     }
 }
 
-export { boundAddComment, removeComment, editComment, thumbUpComment };
+function thumbDownComment(commentId) {
+    return {
+        type: THUMB_DOWN_COMMENT,
+        id: commentId
+    }
+}
+
+export { boundAddComment, removeComment, editComment, thumbUpComment, thumbDownComment };
